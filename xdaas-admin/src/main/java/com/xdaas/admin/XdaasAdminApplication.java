@@ -10,7 +10,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * @since 2020/10/19
  */
 @SpringBootApplication
-
 public class XdaasAdminApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

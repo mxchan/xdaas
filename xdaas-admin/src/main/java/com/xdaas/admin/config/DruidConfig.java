@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 public class DruidConfig {
 
     @Bean
-    @ConfigurationProperties("spring.datasource.druid")
+    @ConfigurationProperties("spring.datasource")
     public DataSource getDatasource() {
         return new DruidDataSource();
     }

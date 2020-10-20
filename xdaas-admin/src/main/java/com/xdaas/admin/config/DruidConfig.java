@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 2020/10/19
  */
 @Configuration
-@MapperScan("com.xdaas.admin.dal.dataobj.mapper")
+@MapperScan("com.xdaas.admin.dal.mapper")
 public class DruidConfig {
 
     @Bean

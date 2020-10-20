@@ -1,5 +1,7 @@
 package com.xdaas.admin.dal.dataobj;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import lombok.Data;
 
 /**
@@ -7,6 +9,7 @@ import lombok.Data;
  * @since 2020/10/19
  */
 @Data
+@TableName("sys_user")
 public class SysUserDO {
 
     private Integer id;

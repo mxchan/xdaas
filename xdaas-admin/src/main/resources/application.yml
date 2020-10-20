@@ -5,6 +5,7 @@ spring:
     url: jdbc:mysql://49.234.66.137:3306/xdaas-admin?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true&serverTimezone=GMT-8
     username: root
     password: flowers2020
+    type: com.alibaba.druid.pool.DruidDataSource
     #下面这些参数为固定参数,无需修改
     filters: config,wall
     db-type: mysql
@@ -29,3 +30,7 @@ spring:
       enabled: false
     stat-view-servlet:
       enabled: false
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto

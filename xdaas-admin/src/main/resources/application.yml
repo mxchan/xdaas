@@ -2,7 +2,7 @@ spring:
   application:
     name: xdaas-admin
   datasource:
-    url: jdbc:mysql://49.234.66.137:3306/xdaas-admin?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true&serverTimezone=GMT-8
+    url: jdbc:mysql://xdaas.cn:3306/xdaas-admin?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true&serverTimezone=GMT-8
     username: root
     password: flowers2020
     type: com.alibaba.druid.pool.DruidDataSource

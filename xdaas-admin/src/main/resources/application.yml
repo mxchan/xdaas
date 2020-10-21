@@ -1,6 +1,8 @@
 spring:
   application:
     name: xdaas-admin
+  profiles:
+    active: @x.env@
   datasource:
     url: jdbc:mysql://xdaas.cn:3306/xdaas-admin?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true&serverTimezone=GMT-8
     username: root
@@ -34,3 +36,5 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
+logging:
+  config: classpath:config/logback-spring.xml

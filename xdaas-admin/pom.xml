@@ -63,4 +63,78 @@
       <artifactId>velocity-engine-core</artifactId>
     </dependency>
   </dependencies>
+  <build>
+    <finalName>xdaas-admin</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*.properties</include>
+          <include>application.yml</include>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+        <excludes>
+          <exclude>config/**/*.json</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <directory>src/main/resources/config/${x.env}</directory>
+        <targetPath>config</targetPath>
+      </resource>
+    </resources>
+    <plugins>
+      <!-- 制定profile打包的时候为 utf-8，不然会有乱码问题。 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <delimiters>
+            <delimiter>@</delimiter>
+          </delimiters>
+          <useDefaultDelimiters>false</useDefaultDelimiters>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <!-- 要使用maven的profile机制的话需要覆盖maven的默认war插件，需要制定下不同的配置文件复制。 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+      </plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <x.env>dev</x.env>
+      </properties>
+    </profile>
+    <profile>
+      <id>test</id>
+      <properties>
+        <x.env>test</x.env>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>prod</id>
+      <properties>
+        <x.env>prod</x.env>
+      </properties>
+    </profile>
+  </profiles>
 </project>

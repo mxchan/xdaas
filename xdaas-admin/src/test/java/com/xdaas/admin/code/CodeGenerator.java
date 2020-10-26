@@ -94,9 +94,10 @@ public class CodeGenerator {
         //父类
         strategy.setSuperEntityClass("com.xdaas.admin.dal.dataobj.BaseDO");
         strategy.setEntityLombokModel(true);
-        String[] tables = {"sys_user"};//要生成的表，官网说支持正则，但这个版本好像不支持
+        //要生成的表
+        String[] tables = {"sys_user", "sys_dept", "sys_post", "sys_role", "sys_post_role", "sys_permission", "sys_role_permission"};
         strategy.setInclude(tables);
-        strategy.setSuperEntityColumns("id", "created", "modified", "flag");//父类的属性
+        strategy.setSuperEntityColumns("id", "creator", "modifier", "created", "modified", "flag");//父类的属性
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
 
